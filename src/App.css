@@ -1,0 +1,23 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  flex: 1;
+  border-right: 1px solid blue;
+}
+
+section {
+  flex: 4;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+  padding: 5px;
+}
