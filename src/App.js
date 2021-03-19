@@ -46,8 +46,11 @@ export default class App extends React.Component {
     const sum = total.reduce(function (a, b) {
       return a + b;
     }, 0);
+
+    const newSum = sum.toLocaleString();
+
     this.setState({
-      total: sum,
+      total: newSum,
     });
   };
 
