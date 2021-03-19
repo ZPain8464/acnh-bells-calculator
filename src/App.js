@@ -5,9 +5,11 @@ import "./App.css";
 export default class App extends React.Component {
   state = {
     items: [],
-    indItem: [],
+    selItems: [],
+    pockets: [],
+    total: "",
   };
-
+  // fetches items from API
   getItems = (item) => {
     fetch(`${config.REACT_APP_BASE_URL}/${item}/`)
       .then((res) => res.json())
@@ -19,12 +21,46 @@ export default class App extends React.Component {
       });
   };
 
-  addToBasket = (item) => {
+  // adds items to Pockets list
+  addToPockets = (item) => {
     const name = item.name["name-USen"];
     const price = item.price;
     const newItem = { name, price };
     this.setState({
-      indItem: [...this.state.indItem, newItem],
+      selItems: [...this.state.selItems, newItem],
+    });
+
+    this.createPocketArray(price);
+  };
+
+  // creates array of selected items
+  createPocketArray = (p) => {
+    this.setState({
+      pockets: [...this.state.pockets, p],
+    });
+  };
+
+  // calculates total of selected items
+  calculateTotal = () => {
+    const total = this.state.pockets;
+    const sum = total.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    this.setState({
+      total: sum,
+    });
+  };
+
+  // clears selected items
+  clearPockets = () => {
+    this.setState({
+      selItems: [],
+    });
+    this.setState({
+      pockets: [],
+    });
+    this.setState({
+      total: "",
     });
   };
 
@@ -61,24 +97,31 @@ export default class App extends React.Component {
           </div>
         </aside>
         <section>
+          <h2>Items</h2>
           <ul>
             {this.state.items.map((item, i) => (
               <li key={i}>
-                {item[1].name["name-USen"]} — ${item[1].price}{" "}
-                <button onClick={() => this.addToBasket(item[1])}>+</button>
+                {item[1].name["name-USen"]} — Bells: ${item[1].price}{" "}
+                <button onClick={() => this.addToPockets(item[1])}>+</button>
               </li>
             ))}
           </ul>
         </section>
         <section>
-          <h2>Basket</h2>
+          <h2>Pockets</h2>
+          <button onClick={this.clearPockets}>Clear pockets</button>
           <ul>
-            {this.state.indItem.map((i) => (
-              <li>
-                {i.name} — Bells: ${i.price}
+            {this.state.selItems.map((item, i) => (
+              <li key={i}>
+                {item.name} — Bells: ${item.price}
               </li>
             ))}
           </ul>
+          <button onClick={this.calculateTotal}>Get Total</button>
+          <hr />
+          <div>
+            <p>Total: ${this.state.total === false ? "" : this.state.total}</p>
+          </div>
         </section>
       </main>
     );
