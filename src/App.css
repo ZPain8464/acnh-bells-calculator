@@ -218,4 +218,11 @@ p {
   p {
     font-size: 15px;
   }
+
+  button#fish,
+  button#sea,
+  button#bugs,
+  button#fossils {
+    font-size: 20px;
+  }
 }
