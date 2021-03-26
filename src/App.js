@@ -144,34 +144,6 @@ export default class App extends React.Component {
               </h2>
             </li>
           </ul>
-          {/* <div>
-            <h2>
-              <button id="fish" onClick={(e) => this.getItems(e.target.id)}>
-                Fish
-              </button>
-            </h2>
-          </div> */}
-          {/* <div>
-            <h2>
-              <button id="sea" onClick={(e) => this.getItems(e.target.id)}>
-                Sea Creatures
-              </button>
-            </h2>
-          </div> */}
-          {/* <div>
-            <h2>
-              <button id="bugs" onClick={(e) => this.getItems(e.target.id)}>
-                Bugs
-              </button>
-            </h2>
-          </div> */}
-          {/* <div>
-            <h2>
-              <button id="fossils" onClick={(e) => this.getItems(e.target.id)}>
-                Fossils
-              </button>
-            </h2>
-          </div> */}
           <div id="items-list">
             <ul id="list"></ul>
           </div>
