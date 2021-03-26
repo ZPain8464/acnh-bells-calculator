@@ -3,21 +3,136 @@
   text-align: center;
 }
 
+body {
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url("/src/Images/leaf-background.png");
+}
+
+header {
+  width: 100%;
+  background-image: url("/src/Images/grass-wallpaper.png");
+  background-size: cover;
+  padding: 10px;
+}
+
+.logo {
+  border: #8c6f45 2px solid;
+  width: 40%;
+  border-radius: 20px;
+  background-color: #c48d3f;
+  text-align: center;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 25px;
+  color: #fff563;
+  font-size: 34px;
+}
+
 main {
   display: flex;
 }
 
-aside {
-  flex: 1;
-  border-right: 1px solid blue;
+menu {
+  display: flex;
+  justify-content: space-around;
+  height: 0%;
+  margin: 0;
+  background-color: #f5f2d0;
+  border-bottom: #8c6f45 2px solid;
+}
+
+button#fish,
+button#sea,
+button#bugs,
+button#fossils {
+  border: #3ad5bb;
+  border-radius: 20px;
+  background: #3ad5bb;
+  color: #fff;
+  font-size: 24px;
+  text-align: left;
+}
+
+button {
+  cursor: pointer;
 }
 
 section {
   flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header h2 {
+  border: #8c6f45 2px solid;
+  width: 80px;
+  background-color: #c48d3f;
+  color: #fff563;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.items {
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.items-container,
+.pockets-container {
+  height: 100%;
+  background-color: white;
+  width: 80%;
+  border-radius: 25px;
 }
 
 ul {
   list-style: none;
   text-align: left;
   padding: 5px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.add-to-pockets {
+  border-radius: 50%;
+  background: #93a66c;
+  color: #fff563;
+  border: none;
+  font-size: 15px;
+}
+
+.pockets-section {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 55%;
+  padding-top: 30px;
+  padding-left: 15px;
+}
+
+.total {
+  border-bottom: 2px grey solid;
+  width: 40%;
+  padding-bottom: 10px;
+}
+
+.total-sum {
+  font-size: 25px;
+}
+
+.pockets-buttons {
+  background: #93a66c;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  color: #fff563;
+  font-size: 15px;
 }
