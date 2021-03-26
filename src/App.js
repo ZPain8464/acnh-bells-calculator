@@ -9,7 +9,16 @@ export default class App extends React.Component {
     selItems: [],
     pockets: [],
     total: "",
+    show: false,
   };
+
+  toggleMenu = () => {
+    const currentState = this.state.show;
+    this.setState({
+      show: !currentState,
+    });
+  };
+
   // fetches items from API
   getItems = (item) => {
     fetch(`${config.REACT_APP_BASE_URL}/${item}/`)
@@ -91,36 +100,78 @@ export default class App extends React.Component {
           <div className="logo">
             <h1>Animal Crossing: New Horizons Bells Calculator</h1>
           </div>
+          <button
+            onClick={this.toggleMenu}
+            id="hamburger"
+            className="hamburger"
+          >
+            <div className="bars" />
+            <div className="bars" />
+            <div className="bars" />
+          </button>
         </header>
-        <menu>
-          <div>
+        <menu className={this.state.show ? "menu show" : "menu hide"}>
+          <ul>
+            <li>
+              <h2>
+                <button id="fish" onClick={(e) => this.getItems(e.target.id)}>
+                  Fish
+                </button>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <button id="sea" onClick={(e) => this.getItems(e.target.id)}>
+                  Sea Creatures
+                </button>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <button id="bugs" onClick={(e) => this.getItems(e.target.id)}>
+                  Bugs
+                </button>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <button
+                  id="fossils"
+                  onClick={(e) => this.getItems(e.target.id)}
+                >
+                  Fossils
+                </button>
+              </h2>
+            </li>
+          </ul>
+          {/* <div>
             <h2>
               <button id="fish" onClick={(e) => this.getItems(e.target.id)}>
                 Fish
               </button>
             </h2>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <h2>
               <button id="sea" onClick={(e) => this.getItems(e.target.id)}>
                 Sea Creatures
               </button>
             </h2>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <h2>
               <button id="bugs" onClick={(e) => this.getItems(e.target.id)}>
                 Bugs
               </button>
             </h2>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <h2>
               <button id="fossils" onClick={(e) => this.getItems(e.target.id)}>
                 Fossils
               </button>
             </h2>
-          </div>
+          </div> */}
           <div id="items-list">
             <ul id="list"></ul>
           </div>

@@ -34,15 +34,22 @@ h1 {
 
 main {
   display: flex;
+  padding-bottom: 15px;
 }
 
 menu {
   display: flex;
-  justify-content: space-around;
   height: 0%;
   margin: 0;
   background-color: #f5f2d0;
   border-bottom: #8c6f45 2px solid;
+}
+
+menu ul {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
 }
 
 button#fish,
@@ -137,9 +144,27 @@ p {
   font-size: 15px;
 }
 
+/* Hamburger menu */
+
+.bars {
+  width: 35px;
+  height: 5px;
+  background-color: #fff563;
+  margin: 6px 0;
+  margin-right: 10px;
+}
+
+.hamburger {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
   h1 {
-    font-size: 15px;
+    font-size: 20px;
     margin: 10px;
   }
 
@@ -149,5 +174,48 @@ p {
 
   header {
     padding: 5px;
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  menu.menu.hide {
+    display: none;
+  }
+
+  menu.menu.show {
+    display: flex;
+    align-items: center;
+  }
+
+  menu ul {
+    flex-direction: column;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .total {
+    width: 60%;
+  }
+
+  .pockets-buttons {
+    font-size: 14px;
+  }
+
+  .total-sum {
+    font-size: 20px;
+  }
+
+  .items-container,
+  .pockets-container {
+    width: 90%;
+  }
+
+  p {
+    font-size: 15px;
   }
 }
